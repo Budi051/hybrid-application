@@ -1,0 +1,47 @@
+<ion-toolbar color="dark">
+	<ion-title color="danger" slot="primary">
+		<ion-label>Detail</ion-label>
+	</ion-title>
+	<ion-title color="danger">
+		<ion-label routerLink="/movie">Back</ion-label>
+	</ion-title>
+</ion-toolbar>
+<p>&nbsp;</p>
+<ion-card>
+	<ion-card-header>
+		<h3><b>{{judul}}</b></h3>
+	    <ion-img src="http://ubaya.prototipe.net/s160418051/project/images/{{idmovie}}{{extension_poster}}">
+	    </ion-img>
+	</ion-card-header>
+	<ion-card-content>
+		<p>
+			Rating : {{rerata}}<br>
+			Pemain : {{pemain}}<br>
+			Sinopsis : {{sinopsis}}<br><br>
+		</p>
+
+		<center *ngIf="tampil == true"><ion-button (click)="tampil=false">Lihat Review</ion-button></center>
+		<center *ngIf="tampil == false"><ion-button (click)="tampil=true">Sembunyikan Review</ion-button></center><br>
+
+		<div *ngIf="tampil == false">
+			<p *ngFor="let item of details; let i = index">
+			User : {{item.iduser}}<br>
+			Review : {{item.review}}<br>
+			Rating : {{item.rating}}<br><br>
+			</p>
+			<div *ngIf="userAda == false">
+				<ion-item>
+					<ion-label position='floating'>Review</ion-label>
+					<ion-textarea [(ngModel)] = "review"></ion-textarea>
+				</ion-item>
+				<ion-item>
+					<ion-label position='floating'>Rating</ion-label>
+					<ion-input type='number' [(ngModel)] = "rating"></ion-input>
+				</ion-item>
+				<ion-button expand='block' (click)="submitReview()">Submit Review</ion-button>
+			</div>
+			<div *ngIf="userAda == true"><center><h2><b>Anda sudah mereview film ini</b></h2></center></div>
+		</div>
+	</ion-card-content>
+</ion-card>
+<p></p>

@@ -1,0 +1,21 @@
+<ion-toolbar color="dark" autoHide="false">
+	<ion-title color="danger" slot="primary">
+		<ion-label>Login</ion-label>
+	</ion-title>
+	<ion-title color="danger">
+		<ion-label routerLink="/movie">Back</ion-label>
+	</ion-title>
+</ion-toolbar>
+
+<br>
+<ion-item>
+  <ion-label position='floating'>ID User</ion-label>
+  <ion-input [(ngModel)] = "idUser"></ion-input>
+</ion-item>
+<br>
+<ion-item>
+  <ion-label  position='floating'>Password</ion-label>
+  <ion-input [(ngModel)] = "password" type="password"></ion-input>
+</ion-item>
+<br>
+<ion-button expand='block' (click)="login()">Log In</ion-button>

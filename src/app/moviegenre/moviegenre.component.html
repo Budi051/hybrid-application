@@ -1,0 +1,21 @@
+<ion-toolbar color="dark">
+	<ion-title color="danger" slot="primary">
+		<ion-label>{{namaGenre}}</ion-label>
+	</ion-title>
+	<ion-title color="danger">
+		<ion-label routerLink="/genre">Back</ion-label>
+	</ion-title>
+</ion-toolbar>
+<p>&nbsp;</p>
+
+<center><br><h2 *ngIf="namaGenre == 'Genre'">Tidak ada film untuk genre ini</h2></center>
+
+<ion-card *ngFor="let item of movies; let i = index">
+  <ion-card-content>
+    <ion-chip>{{ i+1 }}</ion-chip>
+    <h3><b>{{item.judul}}</b></h3>
+    <ion-img src="http://ubaya.prototipe.net/s160418051/project/images/{{item.idmovie}}{{item.extension_poster}}" routerLink="/detail/{{item.idmovie}}">
+    </ion-img>
+  </ion-card-content>
+</ion-card>
+<p></p>
